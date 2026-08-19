@@ -1,0 +1,11 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        mapping = {'(':')', '{':'}', '[':']'}
+        stack = []
+        for i in s:
+            if i in mapping:
+                stack.append(i)
+            else:
+                if not stack or mapping[stack.pop()] != i:
+                    return False
+        return not stack
